@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons start>
+      <ion-icon>
+        <button [hidden]="!isCarroSolicitado" (click)="cancelarCorrida()">
+          <ion-icon name="arrow-back">
+            Cancel
+          </ion-icon>
+        </button>
+      </ion-icon>
+    </ion-buttons>
+    <ion-title>Uber Hack</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <map></map>
+  </div>
+  <div class="bottom request-controls">
+    <ion-row>
+      <ion-col width-50>
+        <button id="button" block ligth>
+          <ion-icon name="card">
+            Cartão **34
+          </ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col width-50>
+        <button id="button">
+          <ion-icon name="cash">
+            Dinheiro
+          </ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button class="botao-corrida" [hidden]="isCarroSolicitado" ion-button block primary (click)="confirmarCorrida()">
+          Solicitar corrida
+        </button>
+
+        <button [hidden]="!isCarroSolicitado" ion-button block secundary (click)="cancelarCorrida()">
+          Cancelar corrida
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Tempo aproximado é de 5 minutos</ion-col>
+    </ion-row>
+  </div>
+  <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
+</ion-content>
