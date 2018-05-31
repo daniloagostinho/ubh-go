@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { MapComponent } from '../../components/map/map';
 
 
 @Component({
@@ -7,17 +8,17 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public isCarroSolicitado: boolean;
+  public isPickupRequested: boolean;
 
   constructor(public navCtrl: NavController) {
-    this.isCarroSolicitado = false;
+    this.isPickupRequested = false;
   }
 
-  confirmarCorrida() {
-    this.isCarroSolicitado = true;
+  confirmPickup() {
+    this.isPickupRequested = true;
   }
 
-  cancelarCorrida() {
-    this.isCarroSolicitado = false;
+  cancelPickup() {
+    this.isPickupRequested = false;
   }
 }

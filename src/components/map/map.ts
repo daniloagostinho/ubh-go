@@ -9,7 +9,8 @@ import { LoadingController, NavController } from 'ionic-angular';
 })
 export class MapComponent implements OnInit {
   @ViewChild('map') mapRef: ElementRef;
-  @Input() isCarroSolicitado: boolean;
+
+  @Input() isPickupRequested: boolean;
 
   public map;
 
@@ -84,13 +85,4 @@ export class MapComponent implements OnInit {
       })
     }
   }
-
-  confirmarCorrida() {
-    this.isCarroSolicitado = true;
-  }
-
-  cancelarCorrida() {
-    this.isCarroSolicitado = false;
-  }
-
 }

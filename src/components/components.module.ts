@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { MapComponent } from './map/map';
 import { IonicPageModule } from 'ionic-angular';
+import { PikupComponent } from './pikup/pikup';
 @NgModule({
-	declarations: [MapComponent],
+	declarations: [MapComponent,
+    PikupComponent],
 	imports: [
     IonicPageModule.forChild(MapComponent),
 
   ],
   entryComponents: [
-    MapComponent
+    MapComponent,
+    PikupComponent
   ],
-	exports: [MapComponent]
+	exports: [MapComponent,
+    PikupComponent]
 })
 export class ComponentsModule {}
