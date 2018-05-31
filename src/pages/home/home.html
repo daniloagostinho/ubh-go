@@ -12,13 +12,23 @@
         </button>
       </ion-icon>
     </ion-buttons>
-    <ion-title>Uber Hack</ion-title>
+    <ion-title>
+      Uber Hack
+    <span [hidden]="isCarroSolicitado">Pegar</span>
+    <span [hidden]="!isCarroSolicitado">A caminho</span>
+    </ion-title>
+    <ion-buttons end>
+      <button (click)="map.centerlocation()">
+          <ion-icon name="navigate"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <div class="wrapper">
-    <map></map>
+    <map #map [isCarroSolicitado]="isCarroSolicitado"></map>
   </div>
   <div class="bottom request-controls">
     <ion-row>

@@ -7,7 +7,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  isCarroSolicitado: boolean;
+  public isCarroSolicitado: boolean;
 
   constructor(public navCtrl: NavController) {
     this.isCarroSolicitado = false;
