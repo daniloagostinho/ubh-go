@@ -13,6 +13,23 @@
       {{user.nome}} {{user.preco}}
     </button>
   </ion-list>
+
+  <form (ngSubmit)="addUser()">
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.nome" name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Preco</ion-label>
+      <ion-input [(ngModel)]="todo.preco" name="preco"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descricao</ion-label>
+      <ion-textarea [(ngModel)]="todo.descricao" name="descricao"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" block>Add Todo</button>
+  </form>
+
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
   </div>

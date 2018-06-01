@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { DataService } from '../../providers/data/data';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
 
 @Component({
   selector: 'page-list',
@@ -12,8 +13,13 @@ export class ListPage implements OnInit {
   users: any;
   items: Array<{title: string, note: string, icon: string}>;
 
+  todo = {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataService) {
+
+  apiUrl = 'http://localhost:8000/api';
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -32,17 +38,41 @@ export class ListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getUsers();
+    this.getUsersFront();
   }
 
-
-  getUsers() {
-    this.data.getUsers()
+  // consumo front
+  getUsersFront() {
+    this.getUsers()
     .then(data => {
       this.users = data;
       console.log(this.users);
     });
   }
+
+  // metodo api
+  getUsers() {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/produtos').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  addUser(data) {
+    data = JSON.stringify(this.todo);
+    console.log(data);
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl+'/produtos', JSON.stringify(data))
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  };
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
