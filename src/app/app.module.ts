@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ComponentsModule } from '../components/components.module';
 import { Geolocation } from '@ionic-native/geolocation';
+import { SimulateService } from '../providers/simulate/simulate';
+import { CarService } from '../providers/car/car';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     StatusBar,
     SplashScreen,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SimulateService,
+    CarService
   ]
 })
 export class AppModule {}
