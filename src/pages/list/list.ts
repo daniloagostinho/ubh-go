@@ -16,7 +16,7 @@ export class ListPage implements OnInit {
   todo = {}
 
 
-  apiUrl = 'http://localhost:8000/api';
+  apiUrl = 'http://localhost:3000/api';
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
@@ -73,7 +73,7 @@ export class ListPage implements OnInit {
         });
     });
   };
-
+tlist
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(ListPage, {
