@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
   templateUrl: 'list.html'
 })
 export class ListPage implements OnInit {
+
   selectedItem: any;
   icons: string[];
   users: any;
@@ -40,6 +41,7 @@ export class ListPage implements OnInit {
   ngOnInit() {
     this.getUsersFront();
   }
+
 
   // consumo front
   getUsersFront() {
