@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 @Injectable()
 export class DataService {
   dadosFront = {nome: 'carlos', idade: 22};
-  apiUrl = 'https://jsonplaceholder.typicode.com';
+  apiUrl = 'http://localhost:8000/api';
   data = JSON.stringify(this.dadosFront);
   constructor(public http: HttpClient) {
 
@@ -15,7 +15,7 @@ export class DataService {
 
   getUsers() {
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/users').subscribe(data => {
+      this.http.get(this.apiUrl+'/produtos').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -23,16 +23,16 @@ export class DataService {
     });
   }
 
-  addUser(data) {
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/users', JSON.stringify(data))
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  };
+  // addUser(data) {
+  //   return new Promise((resolve, reject) => {
+  //     this.http.post(this.apiUrl+'/users', JSON.stringify(data))
+  //       .subscribe(res => {
+  //         resolve(res);
+  //       }, (err) => {
+  //         reject(err);
+  //       });
+  //   });
+  // };
 
   // postUser() {
   //   this.http.post(this.apiUrl+'/users', JSON.stringify(this.data), {
