@@ -10,8 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ComponentsModule } from '../components/components.module';
 import { Geolocation } from '@ionic-native/geolocation';
-import { SimulateService } from '../providers/simulate/simulate';
-import { CarService } from '../providers/car/car';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { CarService } from '../providers/car/car';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ComponentsModule,
     IonicModule.forRoot(MyApp),
   ],
@@ -35,8 +36,7 @@ import { CarService } from '../providers/car/car';
     SplashScreen,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SimulateService,
-    CarService
+    DataService
   ]
 })
 export class AppModule {}

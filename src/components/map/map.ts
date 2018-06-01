@@ -48,7 +48,7 @@ export class MapComponent implements OnInit {
 
   geoLocaticacao() {
     let loading = this.loadingCtrl.create({
-      content: 'Localizando seu carro..'
+      content: 'Encontrando sua localizacao.'
     });
 
     loading.present();

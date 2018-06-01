@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { MapComponent } from './map/map';
 import { IonicPageModule } from 'ionic-angular';
 import { PikupComponent } from './pikup/pikup';
-import { AvailableCarsComponent } from './available-cars/available-cars';
+
 @NgModule({
 	declarations: [MapComponent,
-    PikupComponent,
-    AvailableCarsComponent],
+    PikupComponent],
 	imports: [
     IonicPageModule.forChild(MapComponent),
 
@@ -14,10 +13,8 @@ import { AvailableCarsComponent } from './available-cars/available-cars';
   entryComponents: [
     MapComponent,
     PikupComponent,
-    AvailableCarsComponent
   ],
 	exports: [MapComponent,
-    PikupComponent,
-    AvailableCarsComponent]
+    PikupComponent]
 })
 export class ComponentsModule {}
